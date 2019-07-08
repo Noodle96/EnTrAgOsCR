@@ -19,4 +19,21 @@ public class EntragosServiceImpl implements IEntragosService {
 		return productoDao.findAll(pageable);
 	}
 
+	@Override
+	public void save(Producto producto) {
+		productoDao.save(producto);
+	}
+
+	
+	//retorna un producto buscado por su id
+	@Override
+	public Producto findOne(Long id) {
+		return productoDao.findById(id).orElse(null);
+	}
+
+	@Override
+	public void deleteProducto(Long id) {
+		productoDao.deleteById(id);
+	}
+
 }
