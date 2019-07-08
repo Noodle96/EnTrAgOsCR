@@ -7,7 +7,7 @@
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
 <link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}" />
 <title
-	th:text="'Spring Boot: MVC + Thymeleaf + Data JPA - ' + ${titulo}"></title>
+	th:text="'Entragos - ' + ${titulo}"></title>
 </head>
 
 <body>
@@ -25,9 +25,10 @@
 					<li class="nav-item active"><a class="nav-link" href="#">Home</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="#Cliente"
-						th:href="@{/listar}">Cliente</a></li>
+						th:href="@{/listar}">Productos</a></li>
 				</ul>
 
+				<!--  
 				<ul class="navbar-nav navbar-right">
 					<li sec:authorize="!isAuthenticated()"><a
 						class="btn btn-outline-primary" th:href="@{/login}">Sign In</a></li>
@@ -45,7 +46,7 @@
 						</div>
 					</li>
 				</ul>
-
+				-->
 			</div>
 		</nav>
 
@@ -63,14 +64,17 @@
 	<div class="container"></div>
 
 	<!-- footer -->
+	
 	<footer th:fragment="footer" class="container">
 		<hr />
 		<img th:src="@{/images/entragos.jpg}" alt="trago logo" />
 
+		<!--  
 		<p sec:authorize="isAuthenticated()">
 			Usuario logeado: <span sec:authentication="name"></span> | Roles: <span
 				sec:authentication="principal.authorities"></span>
 		</p>
+		-->
 
 		<p>
 			Powered by <a href="https://projects.spring.io/spring-boot/">Spring
