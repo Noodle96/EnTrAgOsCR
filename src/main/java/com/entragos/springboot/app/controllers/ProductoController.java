@@ -57,7 +57,7 @@ public class ProductoController {
 	
 	
 	
-	//@Secured({"ROLE_USER"})
+	//@Secured({"ROLE_ADMIN","ROLE_USER"})
 	@GetMapping(value = "/uploads/{filename:.+}")
 	public ResponseEntity<Resource> verFoto(@PathVariable String filename) {
 
@@ -111,7 +111,7 @@ public class ProductoController {
 		}
 		*/
 		
-		Pageable pageRequest = PageRequest.of(page, 9);
+		Pageable pageRequest = PageRequest.of(page,3 );
 		Page<Producto> productos = entragosService.findAll(pageRequest);
 		PageRender<Producto> pageRender = new PageRender<Producto>("/listar", productos);
 		model.addAttribute("titulo", "Listado de Productos");
@@ -122,7 +122,7 @@ public class ProductoController {
 	
 	
 	
-	// manda el objecto cliente al form.jsp
+	// manda el objecto cliente al form.html
 		@Secured("ROLE_ADMIN")
 		@RequestMapping(value = "/form", method = RequestMethod.GET) // get
 		public String crear(Map<String, Object> model) {
@@ -147,6 +147,8 @@ public class ProductoController {
 				mode.addAttribute("titulo", "formulario Clientes errors");
 				return "formProducto";
 			}
+			log.info("12345");
+			
 			// log.info("INIT GUARDAR: " + cliente.toString());
 			if (!foto.isEmpty()) {
 				// para edicion podemos editar la foto , entonces eliminamos la que ya no sirv

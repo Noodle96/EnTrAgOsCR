@@ -4,7 +4,7 @@
 <body>
 	<header th:replace="layout/layout :: header"></header>
 	<div class="container py-4">
-		<div class="card border-primary text-center">
+		<div class="card border-primary ">
 			<div class="card-header">Por favor Sign In!</div>
 			<div class="card-body">
 
@@ -30,7 +30,7 @@
 						th:value="${_csrf.token}" />
 
 				</form>
-
+            	<h4  class="text-center"><a th:href="@{/SignUp}">Create an account</a></h4>
 			</div>
 
 		</div>
